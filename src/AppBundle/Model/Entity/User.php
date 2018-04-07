@@ -15,18 +15,21 @@ class User
     private $id;
     private $name;
     private $lastName;
+    private $email;
 
     /**
      * User constructor.
      * @param $id
      * @param $name
      * @param $lastName
+     * @param $email
      */
-    public function __construct($id, $name, $lastName)
+    public function __construct($id, $name, $lastName, $email=null)
     {
         $this->id = $id;
         $this->name = $name;
         $this->lastName = $lastName;
+        $this->email = $email;
     }
 
     /**
@@ -77,5 +80,19 @@ class User
         $this->lastName = $lastName;
     }
 
+    /**
+     * @return null
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 
+    /**
+     * @param null $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 }

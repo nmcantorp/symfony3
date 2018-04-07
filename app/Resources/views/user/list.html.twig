@@ -3,7 +3,13 @@
 {% block body %}
     <h3>{{ title }}
     <hr>
-    <table>
+        <nav class="nav navbar-text nav-justified">
+            <form action="{{ path('find_user') }}" class="form-inline">
+                <input type="text" name="parameter" id="parameter" class="input-group">
+                <button type="submit">Buscar</button>
+            </form>
+        </nav>
+    <table class="table table-striped table-hover table-dark">
         <thead>
         <tr>
             <th>ID</th>
@@ -18,7 +24,7 @@
             <td>{{ user.id }}</td>
             <td>{{ user.name }}</td>
             <td>{{ user.lastName }}</td>
-            <td></td>
+            <td><a  class="btn btn-primary" role="button" href="{{ url('user_view_detail', {id: user.id}) }}">Detalle</a></td>
         </tr>
         {% endfor %}
         </tbody>

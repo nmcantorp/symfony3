@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>{{ title }}
+    <hr>
+    <table class="table table-sm table-dark table-striped table-hover">
+        <tbody>
+        {% for user in users %}
+            <tr><td>ID:</td><td>{{ user.id }}</td></tr>
+            <tr><td>Nombre:</td><td>{{ user.name }}</td></tr>
+            <tr><td>Apellido:</td><td>{{ user.lastName }}</td></tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <h5>{{ currentDate|date }}</h5>
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
