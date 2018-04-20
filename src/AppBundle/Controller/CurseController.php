@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CurseController extends Controller
+class CurseController extends Controller implements TimeElapsedListenerController
 {
     public function indexAction($name)
     {

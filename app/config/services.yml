@@ -53,3 +53,10 @@ services:
             - '@request_stack'
         tags:
             - {name: kernel.event_listener, event: investor.event, method: onUpCost}
+
+    app.event_listener.time_elapsed_listener:
+        class: AppBundle\EventListener\TimeElapsedListener
+        arguments: ['@logger']
+        tags:
+            - {name: kernel.event_listener, event: kernel.controller, method: onKernelController}
+            - {name: kernel.event_listener, event: kernel.response, method: onKernelResponse }

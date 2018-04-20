@@ -6,7 +6,7 @@ use AppBundle\Event\AirlineEvent;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class InvestorController extends Controller
+class InvestorController extends Controller implements TimeElapsedListenerController
 {
     /**
      * @Route("/investor", name="investor")
