@@ -25,12 +25,37 @@
                         <a class="nav-link" href="{{ url('userList') }}">Usuarios</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ url('investor') }}">Inversionista</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>
                 </ul>
             </div>
         </nav>
-        {% block body %}{% endblock %}
+        {% set flash_success = app.session.flashbag.get('success') %}
+        {% set flash_error = app.session.flashbag.get('error') %}
+        {% if flash_success %}
+            <div class="alert alert-success">
+                <ul>
+                    {% for flash_message in flash_success %}
+                        <li>{{ flash_message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        {% if flash_error %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for flash_message in flash_error %}
+                        <li>{{ flash_message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
         {% block javascripts %}
             <script src="{{ asset('public/bootstrap/js/bootstrap.js') }}"></script>
         {% endblock %}

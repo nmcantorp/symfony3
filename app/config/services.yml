@@ -33,3 +33,23 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    app.event_listener.time_access_client_listener:
+        class: AppBundle\EventListener\TimeAccessClientListener
+        arguments:
+            - '@logger'
+            - '%timeaccess%'
+        tags:
+            - {name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+            - {name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    app.model_entity.airline:
+        class: AppBundle\Model\Entity\Airline
+        arguments: ["Lan Airlines", "500"]
+        public: true
+
+    app.event_listener.investor_listener:
+        class: AppBundle\EventListener\InvestorListener
+        arguments:
+            - '@request_stack'
+        tags:
+            - {name: kernel.event_listener, event: investor.event, method: onUpCost}
