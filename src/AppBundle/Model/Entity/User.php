@@ -13,8 +13,22 @@ class User
 {
 
     private $id;
+
+    /**
+     * @Assert\NotBlank()
+     */
     private $name;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
     private $lastName;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Email()
+     */
     private $email;
 
     /**
