@@ -8,7 +8,7 @@
 
 namespace AppBundle\Model\Entity;
 
-
+use Symfony\Component\Validator\Constraint as Assert;
 class User
 {
 
