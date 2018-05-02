@@ -9,6 +9,7 @@
 namespace AppBundle\Model\Entity;
 
 use Symfony\Component\Validator\Constraint as Assert;
+use AppBundle\Validator\Constraints as MyValidator;
 class User
 {
 
@@ -16,12 +17,13 @@ class User
 
     /**
      * @Assert\NotBlank()
+     * @MyValidator\ContraintsAlnumWhiteSpace()
      */
     private $name;
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Email()
+     * @MyValidator\ContraintsAlnumWhiteSpace()
      */
     private $lastName;
 
@@ -30,6 +32,20 @@ class User
      * @Assert\Email()
      */
     private $email;
+
+    /**
+     * @Assert\NotBlank()
+     * @MyValidator\ContraintsAlnumWhiteSpace()
+     * @Assert\Length(min=5, max=10)
+     */
+    private $userName;
+
+    /**
+     * @Assert\NotBlank()
+     * @MyValidator\ContraintsAlnumWhiteSpace()
+     * @Assert\Length(min=4, max=8)
+     */
+    private $password;
 
     /**
      * User constructor.
@@ -109,4 +125,37 @@ class User
     {
         $this->email = $email;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getUserName()
+    {
+        return $this->userName;
+    }
+
+    /**
+     * @param mixed $userName
+     */
+    public function setUserName($userName)
+    {
+        $this->userName = $userName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 }

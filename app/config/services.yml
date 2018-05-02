@@ -60,3 +60,8 @@ services:
         tags:
             - {name: kernel.event_listener, event: kernel.controller, method: onKernelController}
             - {name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    app.model_dao.producto_dao:
+        class: AppBundle\Model\Dao\ProductoDao
+        arguments: ['@Doctrine\ORM\EntityManagerInterface']
+        public: true
